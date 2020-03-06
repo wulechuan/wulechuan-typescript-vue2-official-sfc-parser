@@ -33,7 +33,7 @@
 
 This tools is extracted manually from the official source codes of Vue `v2.6.11`.
 
-As we know, Vuejs allows so-called Sinlge-filed Component(SFC), to write markups (`<template>`), JavaScritp codes (`<script>`) and CSS codes (`<style>`) all together within a single file. And the said file be default takes `.vue` as its file extension. This tool parses the content string for a `.vue` file, and outputs an object, containing all parts separately. Thus you get pure markups, pure javascript codes, pure CSS codes, or even pure customized codes if any.
+As we know, Vuejs allows so-called Sinlge-filed Component(SFC), to write markups (`<template>`), JavaScritp codes (`<script>`) and CSS codes (`<style>`) all together within a single file. And the said file by default takes `.vue` as its file extension. This tool parses the content string for a `.vue` file, and outputs an object, containing all parts separately. Thus you get pure markups, pure javascript codes, pure CSS codes, or even pure customized codes if any.
 
 
 Simply put, this tool tears a `.vue` file apart, and provides all parts, so that other JavaScript codes and make use of these parts separately.
@@ -43,7 +43,7 @@ Simply put, this tool tears a `.vue` file apart, and provides all parts, so that
 
 -   Maybe we need to extract onluy the Stylus codes within a given `.vue` file, and then compile these Stylus codes into CSS codes.
 
--   Or say we are writting a Vue component as a lib, but we choose to write this component with TypeScript instead of JavaScript. When a project of pure JavaScript needs to make use of the lib written by us, that project might have difficulties to import out `.vue` file of TypeScript directly. So, as the author of the lib, we should provide a JavaScript version of our `.vue` file. This is a nice example that my tool play a role. You write your `.vue` lib component in TypeScript, then you design a simple tool chain to convert the TypeScript version into a JavaScript version. Then obviously my tool can help you build your tool chain.
+-   Or say we are writting a Vue component as a lib, but we choose to write this component in TypeScript instead of JavaScript. When a project of pure JavaScript needs to make use of the lib written by us, that project might have difficulties to import out `.vue` file of TypeScript directly. So, as the author of the lib, we should provide a JavaScript version of our `.vue` file. This is a nice example that my tool play a role. You write your `.vue` lib component in TypeScript, then you design a simple tool chain to convert the TypeScript version into a JavaScript version. Then obviously my tool can help you build your tool chain.
 
 
 ### Modifications over Original Codes

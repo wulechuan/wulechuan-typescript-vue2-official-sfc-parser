@@ -1,6 +1,6 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "wulechuan <wulechuan@live.com>",
     "license": "MIT",
     "description": "This tool tears a `.vue` file apart, and provides all parts, so that other JavaScript codes and make use of these parts separately.",
