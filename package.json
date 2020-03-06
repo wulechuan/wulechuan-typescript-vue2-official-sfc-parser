@@ -1,0 +1,61 @@
+{
+    "name": "@wulechuan/vue2-official-sfc-parser",
+    "version": "0.1.0",
+    "author": "wulechuan <wulechuan@live.com>",
+    "license": "MIT",
+    "description": "This tool tears a `.vue` file apart, and provides all parts, so that other JavaScript codes and make use of these parts separately.",
+    "scripts": {
+        "_lint-source": "tslint  --fix  ./source/**/*.ts",
+        "_lint-dist": "eslint    --fix  ./dist/",
+        "_tsc": "npm  run  _lint-source    &&    rimraf  -rf  ./dist    &&    tsc  ./source/index.ts  --outDir ./dist/    &&    rimraf  -f  ./dist/types.js",
+        "lint": "npm  run  _lint-source",
+        "dist": "npm  run  _tsc    &&    npm  run  _lint-dist",
+        "test": "npx  babel-node  tests/index.js",
+        "start": "npm  run  dist    &&    npm  test"
+    },
+    "main": "./dist/index.js",
+    "keywords": [
+        "vue",
+        "sfc",
+        "single-file-component",
+        "single-file-components",
+        "single-filed-components",
+        "single-filed-components",
+        "vue-sfc",
+        "vue-single-file-component",
+        "vue-single-file-components",
+        "vue-single-filed-component",
+        "vue-single-filed-components",
+        "parser",
+        "sfc-parser",
+        "vue-sfc-parser",
+        "vue2",
+        "typescript"
+    ],
+    "homepage": "https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git/issues"
+    },
+    "dependencies": {
+        "de-indent": "^1.0.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.7",
+        "@babel/node": "^7.8.7",
+        "@babel/preset-env": "^7.8.7",
+        "@types/node": "^13.7.7",
+        "@typescript-eslint/eslint-plugin": "^2.22.0",
+        "@typescript-eslint/parser": "^2.22.0",
+        "@vue/eslint-config-typescript": "^5.0.2",
+        "eslint": "^5.16.0",
+        "fs-extra": "^8.1.0",
+        "tslint": "^6.0.0",
+        "typescript": "^3.8.3",
+        "vue": "^2.6.11",
+        "vue-property-decorator": "^8.4.0"
+    }
+}

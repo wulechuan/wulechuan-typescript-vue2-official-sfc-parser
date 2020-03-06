@@ -1,0 +1,12 @@
+.vscode
+.eslint*
+.tslint*
+.markdownlint*
+.gitignore
+node_modules
+documents/styles
+document/**/*.html
+ReadMe*.html
+tests
+dist/types.js
+git-push-all.sh

@@ -1,0 +1,17 @@
+{
+    "eslint.enable": true,
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        // "package-lock.json": true,
+        // ".markdownlint*": true,
+        // ".eslintrc.js": true,
+        // ".npmignore": true,
+        // ".gitignore": true,
+        // "tsconfig.js*": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/*.code-search": true
+    }
+}

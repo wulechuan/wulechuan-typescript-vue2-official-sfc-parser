@@ -1,0 +1,21 @@
+'use strict'
+exports.__esModule = true
+/**
+ * Make a map and return a function for checking if a key
+ * is in that map.
+ */
+function createHTMLTagsMatchingFunction(str, expectsLowerCase) {
+    var map = Object.create(null)
+    var list = str.split(',')
+    for (var i = 0; i < list.length; i++) {
+        map[list[i]] = true
+    }
+    return expectsLowerCase
+        ? function (val) { return map[val.toLowerCase()] }
+        : function (val) { return map[val] }
+}
+exports.createHTMLTagsMatchingFunction = createHTMLTagsMatchingFunction
+/**
+ * Always return false.
+ */
+exports.alwaysReturnsFalse = function (a, b, c) { return false }

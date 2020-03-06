@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "strict": true,
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "importHelpers": false,
+        "sourceMap": false
+    },
+}
