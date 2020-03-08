@@ -1,6 +1,6 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "wulechuan <wulechuan@live.com>",
     "license": "MIT",
     "description": "This tool tears a `.vue` file apart, and provides all parts, so that other JavaScript codes and make use of these parts separately.",
@@ -51,6 +51,7 @@
         "@typescript-eslint/eslint-plugin": "^2.22.0",
         "@typescript-eslint/parser": "^2.22.0",
         "@vue/eslint-config-typescript": "^5.0.2",
+        "@wulechuan/css-stylus-markdown-themes": "^6.4.0",
         "eslint": "^5.16.0",
         "fs-extra": "^8.1.0",
         "tslint": "^6.0.0",

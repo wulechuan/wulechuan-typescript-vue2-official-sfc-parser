@@ -9,4 +9,4 @@ document/**/*.html
 ReadMe*.html
 tests
 dist/types.js
-git-push-all.sh
+git*.sh
