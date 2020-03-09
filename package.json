@@ -1,9 +1,9 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "author": "wulechuan <wulechuan@live.com>",
     "license": "MIT",
-    "description": "This tool tears a `.vue` file apart, and provides all parts, so that other JavaScript codes and make use of these parts separately.",
+    "description": "This tool is extracted from the vue v2.x official codes. This tool parses the string of the full contents of a `.vue` file, and provides all parts of the `.vue` file contents separately, via a single object, so that other JavaScript codes and make use of these parts.",
     "scripts": {
         "_lint-source": "tslint  --fix  ./source/**/*.ts",
         "_lint-dist": "eslint    --fix  ./dist/",

@@ -31,11 +31,11 @@
 
 ### 来源及功用
 
-本工具之代码系由本人手工提取自 Vue `v2.6.11` 官方源代码，而后整理而成。提取出的这些代码之功能如下：
+本工具之代码系由本人手工提取自 Vue `v2.6.11` 之官方源代码，而后整理而成。提取出的这些代码之功能如下：
 
--   将一个 Vue 单文件组件文件（即“single-filed-component”，扩展名往往为 `.vue` ）之内容字符串中的唯一的【根 `<template>`】、唯一的【`<script>`】、所有的【`<style>`】， 以及任何自定义部分，逐一干净的分离。分离出的多个片段全部存放在一个对象中。并返回该对象。
+-   将一个 Vue 【单文件组件】（即“single-filed-component”，扩展名往往为 `.vue` ）之内容字符串中的唯一的【根 `<template>`】、唯一的【`<script>`】、所有的【`<style>`】， 以及任何自定义部分，逐一干净的分离。分离出的多个片段全部存放在一个对象中，并返回该对象。
 
-我们不妨将纯净的 `<template>` 中的代码、纯净的 `<script>` 中的代码，以及纯净的 `<style>` 中的代码，统称为鄙人所无“单品类代码”。
+我们不妨将纯净的 `<template>` 中的代码、纯净的 `<script>` 中的代码，以及纯净的 `<style>` 中的代码，统称为鄙人所谓“单品类代码”。
 
 简而言之，本工具将 `.vue` 文件之内容拆分成各个单品类代码，供其他程序采用。
 
@@ -46,7 +46,7 @@
 
 -   我们可以自行编写工具，将原始 `.vue` 文件中的 Stylus 代码编译成 CSS 代码，并单独存放成 `.css` 文件。
 
--   又或者，我们可以将原始 `.vue` 文件中的 TypeScript 转译为 JavaScript，并将 SASS 编译成 CSS。然后将 JavaScript 和 CSS，连同原封未动的 template 部分，拼合为一个新的 `.vue` 文件，存放在磁盘上。这在采用 TypeScript 自行编写独立的 Vue 组件，并欲发布成 JavaScript 可以直接使用的代码时，是非常必要之举。我们采用 TypeScript 直接编写 `.vue` 文件，但他人的纯 JavaScript 代码可能并未配置 TypeScript 相关的工具链，因而无法直接采用我们编写的 `.vue`。如此，我们须另行提供 JavaScript 版本的 `.vue` 文件。此时，为精准将我们编写的原始 `.vue` 中的 TypeScript 代码提取出来以便之后转译，就要用到本工具。
+-   又或者，我们可以将原始 `.vue` 文件中的 TypeScript 转译为 JavaScript，并将 Sass 编译成 CSS。然后将 JavaScript 和 CSS，连同原封未动的 template 部分，拼合为一个新的 `.vue` 文件，存放在磁盘上。这在采用 TypeScript 自行编写独立的 Vue 组件，并欲发布成 JavaScript 可以直接使用的代码时，是非常必要之举。我们采用 TypeScript 直接编写 `.vue` 文件，但他人的纯 JavaScript 代码可能并未配置 TypeScript 相关的工具链，因而无法直接采用我们编写的 `.vue`。如此，我们须另行提供 JavaScript 版本的 `.vue` 文件。此时，为精准将我们编写的原始 `.vue` 中的 TypeScript 代码提取出来以便之后转译，就要用到本工具。
 
 
 ### 修订
