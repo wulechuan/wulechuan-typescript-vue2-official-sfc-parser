@@ -1,3 +1,11 @@
+/*
+  eslint
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+*/
+
 import { parseHTML } from './dependencies/vue-compiler-html-parser'
 import { createHTMLTagsMatchingFunction } from './dependencies/vue-shared-util'
 
@@ -42,7 +50,7 @@ export function vueSFCParser (
     let currentBlock: SFCBlock | null = null
 
     let warn = (msg: any, range?: any) => {
-        sfc.errors!.push(msg)
+        sfc.errors!.push(msg) // eslint-disable-line @typescript-eslint/no-non-null-assertion
     }
 
     if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
@@ -54,7 +62,7 @@ export function vueSFCParser (
             if (range.end != null) {
                 data.end = range.end
             }
-            sfc.errors!.push(data)
+            sfc.errors!.push(data) // eslint-disable-line @typescript-eslint/no-non-null-assertion
         }
     }
 
@@ -113,13 +121,13 @@ export function vueSFCParser (
         if (depth === 1 && currentBlock) {
             currentBlock.end = start
             let text = content.slice(currentBlock.start, currentBlock.end)
-            if (options!.deindent !== false) {
+            if (options!.deindent !== false) { // eslint-disable-line @typescript-eslint/no-non-null-assertion
                 text = deindent(text)
             }
             // pad content so that linters and pre-processors can output correct
             // line numbers in errors and warnings
-            if (currentBlock.type !== 'template' && options!.pad) {
-                text = padContent(currentBlock, options!.pad) + text
+            if (currentBlock.type !== 'template' && options!.pad) { // eslint-disable-line @typescript-eslint/no-non-null-assertion
+                text = padContent(currentBlock, options!.pad) + text // eslint-disable-line @typescript-eslint/no-non-null-assertion
             }
             currentBlock.content = text
             currentBlock = null

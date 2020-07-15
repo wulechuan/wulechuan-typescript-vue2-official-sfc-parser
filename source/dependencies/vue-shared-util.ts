@@ -12,12 +12,12 @@ export function createHTMLTagsMatchingFunction (
         map[list[i]] = true
     }
     return expectsLowerCase
-        ? val => map[val.toLowerCase()]
-        : val => map[val]
+        ? (val): any => map[val.toLowerCase()]
+        : (val): any => map[val]
 }
 
 
 /**
  * Always return false.
  */
-export const alwaysReturnsFalse = (a?: any, b?: any, c?: any) => false
+export const alwaysReturnsFalse = (): boolean => false

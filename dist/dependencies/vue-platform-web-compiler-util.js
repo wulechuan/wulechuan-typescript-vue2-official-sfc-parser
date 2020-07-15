@@ -1,6 +1,7 @@
 'use strict'
 exports.__esModule = true
-var vue_shared_util_1 = require('./vue-shared-util')
+exports.isNonPhrasingTag = void 0
+let vue_shared_util_1 = require('./vue-shared-util')
 // HTML5 tags https://html.spec.whatwg.org/multipage/indices.html#elements-3
 // Phrasing Content https://html.spec.whatwg.org/multipage/dom.html#phrasing-content
 exports.isNonPhrasingTag = vue_shared_util_1.createHTMLTagsMatchingFunction('address,article,aside,base,blockquote,body,caption,col,colgroup,dd,' +

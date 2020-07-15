@@ -1,5 +1,6 @@
 'use strict'
 exports.__esModule = true
+exports.parsePath = exports.def = exports.isReserved = exports.unicodeRegExp = void 0
 /**
  * unicode letters used for parsing html tags, component names and property paths.
  * using https://www.w3.org/TR/html53/semantics-scripting.html#potentialcustomelementname
@@ -10,7 +11,7 @@ exports.unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u03
  * Check if a string starts with $ or _
  */
 function isReserved(str) {
-    var c = (str + '').charCodeAt(0)
+    let c = (str + '').charCodeAt(0)
     return c === 0x24 || c === 0x5F
 }
 exports.isReserved = isReserved
@@ -29,14 +30,14 @@ exports.def = def
 /**
  * Parse simple path.
  */
-var bailRE = new RegExp('[^' + exports.unicodeRegExp.source + '.$_\\d]')
+let bailRE = new RegExp('[^' + exports.unicodeRegExp.source + '.$_\\d]')
 function parsePath(path) {
     if (bailRE.test(path)) {
         return
     }
-    var segments = path.split('.')
+    let segments = path.split('.')
     return function (obj) {
-        for (var i = 0; i < segments.length; i++) {
+        for (let i = 0; i < segments.length; i++) {
             if (!obj)
                 return
             obj = obj[segments[i]]

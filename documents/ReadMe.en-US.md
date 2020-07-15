@@ -48,7 +48,7 @@ Simply put, this tool tears a `.vue` file apart, and provides all parts under a 
 
 ### Modifications over Original Codes
 
-To satisfy the tslint, I do modified the orginal codes a bit.
+To satisfy the eslint, I do modified the orginal codes a bit.
 
 Such as, change all
 

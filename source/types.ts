@@ -15,7 +15,7 @@ export type ASTAttr = {
   value: any;
   dynamic?: boolean;
   start?: number;
-  end?: number
+  end?: number;
 };
 
 /**
@@ -158,7 +158,7 @@ export interface ASTText {
  */
 interface SFCParserOptions {
   pad?: true | 'line' | 'space';
-  deindent?: boolean
+  deindent?: boolean;
 }
 
 export interface SFCBlock {

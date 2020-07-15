@@ -5,8 +5,11 @@ module.exports = {
         node: true,
         browser: true,
     },
+    // parser: '@typescript-eslint/parser',
+    plugins: [ '@typescript-eslint' ],
     extends: [
         "eslint:recommended",
+        'plugin:@typescript-eslint/recommended',
     ],
     parserOptions: {
         parser: '@typescript-eslint/parser',
@@ -14,6 +17,12 @@ module.exports = {
         sourceType: 'module',
     },
     rules: {
+        '@typescript-eslint/camelcase': 0,
+        '@typescript-eslint/no-explicit-any': 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-use-before-define": 0,
+        "@typescript-eslint/no-unused-vars": 0,
         'no-unused-vars': 0, // for typescript interfaces
         'import/no-unresolved': 0,
         'import/no-extraneous-dependencies': 0,
@@ -34,7 +43,7 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
         'max-statements': [0, 64],
-        'multiline-ternary': ['error', 'always-multiline'],
+        'multiline-ternary': 0,
         'new-parens': [1],
         yoda: [0, 'never'],
         'comma-dangle': ['error', {
@@ -49,7 +58,7 @@ module.exports = {
         'no-new-func': 'error',
         'no-eval': 'error',
         'no-implied-eval': 'error',
-        'prefer-const': 'error',
+        'prefer-const': 0,
         'arrow-body-style': 0,
         'prefer-destructuring': ['error',
             {
