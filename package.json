@@ -1,6 +1,6 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "author": "wulechuan <wulechuan@live.com>",
     "license": "MIT",
     "description": "This tool is extracted from the vue v2.x official codes. This tool parses the string of the full contents of a `.vue` file, and provides all parts of the `.vue` file contents separately, via a single object, so that other JavaScript codes and make use of these parts.",
@@ -11,7 +11,9 @@
         "lint": "npm  run  _lint-source",
         "dist": "npm  run  _tsc    &&    npm  run  _lint-dist",
         "test": "npx  babel-node  tests/index.js",
-        "start": "npm  run  dist    &&    npm  test"
+        "start": "npm  run  dist    &&    npm  test",
+        "before-git-commit": "npm  i    &&    npm  start",
+        "prepublishOnly": "npm                     start"
     },
     "main": "./dist/index.js",
     "keywords": [

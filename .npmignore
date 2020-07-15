@@ -5,7 +5,7 @@
 .gitignore
 node_modules
 documents/styles
-document/**/*.html
+document
 ReadMe*.html
 tests
 dist/types.js

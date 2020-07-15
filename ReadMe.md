@@ -5,7 +5,7 @@
 
 ## Multilingual Editions of this Article
 
-- [English version of this ReadMe](./ReadMe.en-US.md)
+- [English version of this ReadMe](./documents/ReadMe.en-US.md)
 
 
 
@@ -35,9 +35,9 @@
 
 -   将一个 Vue 【单文件组件】（即“single-filed-component”，扩展名往往为 `.vue` ）之内容字符串中的唯一的【根 `<template>`】、唯一的【`<script>`】、所有的【`<style>`】， 以及任何自定义部分，逐一干净的分离。分离出的多个片段全部存放在一个对象中，并返回该对象。
 
-我们不妨将纯净的 `<template>` 中的代码、纯净的 `<script>` 中的代码，以及纯净的 `<style>` 中的代码，统称为鄙人所谓“单品类代码”。
+我们不妨将纯净的 `<template>` 中的代码、纯净的 `<script>` 中的代码，以及纯净的 `<style>` 中的代码，统称为鄙人所谓“**单品类代码**”。
 
-简而言之，本工具将 `.vue` 文件之内容拆分成各个单品类代码，供其他程序采用。
+**简而言之，本工具将 `.vue` 文件之内容拆分成一个对象（Object），其内存放着各个单品类代码，供其他程序采用。**
 
 
 ### 存在意义

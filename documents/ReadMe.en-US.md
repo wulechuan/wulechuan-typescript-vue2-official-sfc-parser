@@ -1,11 +1,11 @@
 # Vue 2.x Official Single-filed Component (SFC) Parser That's Extracted
 
-<link rel="stylesheet" href="./node_modules/@wulechuan/css-stylus-markdown-themes/dist/css/wulechuan-styles-for-html-via-markdown--vscode.default.min.css">
+<link rel="stylesheet" href="../node_modules/@wulechuan/css-stylus-markdown-themes/dist/css/wulechuan-styles-for-html-via-markdown--vscode.default.min.css">
 
 
 ## Multilingual Editions of this Article
 
-- 《[本文之简体中文版](./ReadMe.md)》
+- 《[本文之简体中文版](../ReadMe.md)》
 
 
 
@@ -36,7 +36,7 @@ This tools is extracted manually from the official source codes of Vue `v2.6.11`
 As we know, Vuejs allows so-called Sinlge-filed Component(SFC), to write markups (`<template>`), JavaScritp codes (`<script>`) and CSS codes (`<style>`) all together within a single file. And the said file by default takes `.vue` as its file extension. This tool parses the content string for a `.vue` file, and outputs an object, containing all parts separately. Thus you get pure markups, pure javascript codes, pure CSS codes, or even pure customized codes if any.
 
 
-Simply put, this tool tears a `.vue` file apart, and provides all parts, so that other JavaScript codes and make use of these parts separately.
+Simply put, this tool tears a `.vue` file apart, and provides all parts under a single object, so that other JavaScript codes and make use of these parts separately.
 
 
 ### Why should this tool exist
