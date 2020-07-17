@@ -11,7 +11,7 @@ exports.unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u03
  * Check if a string starts with $ or _
  */
 function isReserved(str) {
-    let c = (str + '').charCodeAt(0)
+    var c = (str + '').charCodeAt(0)
     return c === 0x24 || c === 0x5F
 }
 exports.isReserved = isReserved
@@ -30,14 +30,14 @@ exports.def = def
 /**
  * Parse simple path.
  */
-let bailRE = new RegExp('[^' + exports.unicodeRegExp.source + '.$_\\d]')
+var bailRE = new RegExp('[^' + exports.unicodeRegExp.source + '.$_\\d]')
 function parsePath(path) {
     if (bailRE.test(path)) {
         return
     }
-    let segments = path.split('.')
+    var segments = path.split('.')
     return function (obj) {
-        for (let i = 0; i < segments.length; i++) {
+        for (var i = 0; i < segments.length; i++) {
             if (!obj)
                 return
             obj = obj[segments[i]]

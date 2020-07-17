@@ -8,29 +8,29 @@
 */
 exports.__esModule = true
 exports.vueSFCParser = void 0
-let vue_compiler_html_parser_1 = require('./dependencies/vue-compiler-html-parser')
-let vue_shared_util_1 = require('./dependencies/vue-shared-util')
-let deindent = require('de-indent')
-let splitRE = /\r?\n/g
-let replaceRE = /./g
-let isSpecialTag = vue_shared_util_1.createHTMLTagsMatchingFunction('script,style,template', true)
+var vue_compiler_html_parser_1 = require('./dependencies/vue-compiler-html-parser')
+var vue_shared_util_1 = require('./dependencies/vue-shared-util')
+var deindent = require('de-indent')
+var splitRE = /\r?\n/g
+var replaceRE = /./g
+var isSpecialTag = vue_shared_util_1.createHTMLTagsMatchingFunction('script,style,template', true)
 function vueSFCParser(content, options) {
     options = options || {}
-    let sfc = {
+    var sfc = {
         template: null,
         script: null,
         styles: [],
         customBlocks: [],
         errors: [],
     }
-    let depth = 0
-    let currentBlock = null
-    let warn = function (msg, range) {
+    var depth = 0
+    var currentBlock = null
+    var warn = function (msg, range) {
         sfc.errors.push(msg) // eslint-disable-line @typescript-eslint/no-non-null-assertion
     }
     if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
         warn = function (msg, range) {
-            let data = { msg: msg }
+            var data = { msg: msg }
             if (range.start != null) {
                 data.start = range.start
             }
@@ -47,7 +47,7 @@ function vueSFCParser(content, options) {
                 content: '',
                 start: end,
                 attrs: attrs.reduce(function (cumulated, _a) {
-                    let {name} = _a, {value} = _a
+                    var {name} = _a, {value} = _a
                     cumulated[name] = value || true
                     return cumulated
                 }, {}),
@@ -70,8 +70,8 @@ function vueSFCParser(content, options) {
         }
     }
     function checkAttrs(block, attrs) {
-        for (let i = 0; i < attrs.length; i++) {
-            let attr = attrs[i]
+        for (var i = 0; i < attrs.length; i++) {
+            var attr = attrs[i]
             if (attr.name === 'lang') {
                 block.lang = attr.value
             }
@@ -89,7 +89,7 @@ function vueSFCParser(content, options) {
     function end(tag, start) {
         if (depth === 1 && currentBlock) {
             currentBlock.end = start
-            let text = content.slice(currentBlock.start, currentBlock.end)
+            var text = content.slice(currentBlock.start, currentBlock.end)
             if (options.deindent !== false) { // eslint-disable-line @typescript-eslint/no-non-null-assertion
                 text = deindent(text)
             }
@@ -108,8 +108,8 @@ function vueSFCParser(content, options) {
             return content.slice(0, block.start).replace(replaceRE, ' ')
         }
         else {
-            let offset = content.slice(0, block.start).split(splitRE).length
-            let padChar = block.type === 'script' && !block.lang
+            var offset = content.slice(0, block.start).split(splitRE).length
+            var padChar = block.type === 'script' && !block.lang
                 ? '//\n'
                 : '\n'
             return Array(offset).join(padChar)

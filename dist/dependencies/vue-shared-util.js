@@ -6,9 +6,9 @@ exports.alwaysReturnsFalse = exports.createHTMLTagsMatchingFunction = void 0
  * is in that map.
  */
 function createHTMLTagsMatchingFunction(str, expectsLowerCase) {
-    let map = Object.create(null)
-    let list = str.split(',')
-    for (let i = 0; i < list.length; i++) {
+    var map = Object.create(null)
+    var list = str.split(',')
+    for (var i = 0; i < list.length; i++) {
         map[list[i]] = true
     }
     return expectsLowerCase

@@ -16,7 +16,7 @@ export function isReserved (str: string): boolean {
 /**
  * Define a property.
  */
-export function def(obj: object, key: string, val: any, enumerable?: boolean): void {
+export function def(obj: Record<string, unknown>, key: string, val: any, enumerable?: boolean): void {
     Object.defineProperty(obj, key, {
         value: val,
         enumerable: !!enumerable,
@@ -34,7 +34,7 @@ export function parsePath (path: string): any {
         return
     }
     const segments = path.split('.')
-    return function (obj: object): undefined | object {
+    return function (obj: any): undefined | Record<string, unknown> {
         for (let i = 0; i < segments.length; i++) {
             if (!obj) return
             obj = obj[segments[i]]

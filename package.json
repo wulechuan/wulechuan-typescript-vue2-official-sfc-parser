@@ -1,6 +1,6 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "author": "wulechuan <wulechuan@live.com>",
     "license": "MIT",
     "description": "This tool is extracted from the vue v2.x official codes. This tool parses the string of the full contents of a `.vue` file, and provides all parts of the `.vue` file contents separately, via a single object, so that other JavaScript codes and make use of these parts.",
@@ -51,15 +51,15 @@
         "@babel/core": "^7.10.5",
         "@babel/node": "^7.10.5",
         "@babel/preset-env": "^7.10.4",
-        "@types/node": "^13.13.14",
-        "@typescript-eslint/eslint-plugin": "^2.34.0",
-        "@typescript-eslint/parser": "^2.34.0",
+        "@types/node": "^14.0.23",
+        "@typescript-eslint/eslint-plugin": "^3.6.1",
+        "@typescript-eslint/parser": "^3.6.1",
         "@vue/eslint-config-typescript": "^5.0.2",
         "@wulechuan/css-stylus-markdown-themes": "^6.4.12",
-        "eslint": "^5.16.0",
-        "fs-extra": "^8.1.0",
-        "typescript": "^3.9.6",
+        "eslint": "^7.4.0",
+        "fs-extra": "^9.0.1",
+        "typescript": "^3.9.7",
         "vue": "^2.6.11",
-        "vue-property-decorator": "^8.5.1"
+        "vue-property-decorator": "^9.0.0"
     }
 }
