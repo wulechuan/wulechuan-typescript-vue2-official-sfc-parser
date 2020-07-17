@@ -1,10 +1,12 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "author": "wulechuan <wulechuan@live.com>",
     "license": "MIT",
     "description": "This tool is extracted from the vue v2.x official codes. This tool parses the string of the full contents of a `.vue` file, and provides all parts of the `.vue` file contents separately, via a single object, so that other JavaScript codes and make use of these parts.",
     "scripts": {
+        "remove-all-html-docs": "rimraf  ./ReadMe.html  ./documents/**/*.html",
+        "generate-html-docs": "npm  run  remove-all-html-docs    &&    wlc-md-to-html  -i ./*.md,./documents/**/*.md  -E3  -C ./documents/wlc-md-to-html.config.js  --to '*'",
         "_lint-source": "eslint  --fix  ./source/**/*.ts",
         "_lint-dist": "eslint    --fix  ./dist/",
         "_tsc": "npm  run  _lint-source    &&    rimraf  -rf  ./dist    &&    tsc  ./source/index.ts  --outDir ./dist/    &&    rimraf  -f  ./dist/types.js",
@@ -12,8 +14,8 @@
         "dist": "npm  run  _tsc    &&    npm  run  _lint-dist",
         "test": "npx  babel-node  tests/index.js",
         "start": "npm  run  dist    &&    npm  test",
-        "before-git-commit": "npm  i    &&    npm  start",
-        "prepublishOnly": "npm                     start"
+        "before-git-commit": "npm  i                &&    npm  start",
+        "prepublishOnly": "rimraf  ./ReadMe.html    &&    npm  start"
     },
     "main": "./dist/index.js",
     "keywords": [
