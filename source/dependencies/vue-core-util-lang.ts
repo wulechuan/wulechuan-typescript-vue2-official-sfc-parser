@@ -16,7 +16,7 @@ export function isReserved (str: string): boolean {
 /**
  * Define a property.
  */
-export function def(obj: Record<string, unknown>, key: string, val: any, enumerable?: boolean): void {
+export function def(obj: Record<string, unknown>, key: string, val: any, enumerable?: boolean): void { // eslint-disable-line @typescript-eslint/explicit-module-boundary-types
     Object.defineProperty(obj, key, {
         value: val,
         enumerable: !!enumerable,
