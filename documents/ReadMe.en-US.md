@@ -121,7 +121,7 @@ interface SFCBlock {
     attrs: Record<string, string>;
     start?: number;
     end?: number;
-    lang?: string; // The language of the given part. It could be ts, stylus, etc.
+    lang?: string; // The language of the given part. It could be 'ts', 'stylus', etc.
     src?: string;
     scoped?: boolean;
     module?: string | boolean;
