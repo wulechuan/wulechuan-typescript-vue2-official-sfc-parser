@@ -1,6 +1,6 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "author": "吴乐川 <wulechuan@live.com>",
     "license": "MIT",
     "description": "This tool is extracted from the vue v2.x official codes. This tool parses the string of the full contents of a `.vue` file, and provides all parts of the `.vue` file contents separately, via a single object, so that other JavaScript codes and make use of these parts.",

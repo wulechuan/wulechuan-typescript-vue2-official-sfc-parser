@@ -1,13 +1,46 @@
+# ----- 临时资料 ---------------
+临时资料
+
+
+
+
+
+# ----- 仅面向研发阶段的诸配置文件 ---------------
+.circleci
+.vs/**/*
 .vscode
 .babelrc
-.eslint*
-tsconfig*
-.markdownlint*
-.gitignore
-node_modules
-dist/types.js
-documents
-source
-tests
-ReadMe.html
-git*.sh
+.eslintignore
+.eslintrc.js
+.markdownlint.json
+tsconfig.json
+
+
+
+
+
+# ----- 仅面向研发阶段的诸工具 ---------------
+*.sh
+*.ps1
+用于研发阶段的命令行工具
+
+
+
+
+
+# ----- 文档 ---------------
+documents/
+
+
+
+
+
+# ----- 测试集 ---------------
+tests/
+
+
+
+
+
+# ----- 不必发布的源代码 ---------------
+source/
