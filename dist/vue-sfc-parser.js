@@ -13,7 +13,7 @@ var vue_shared_util_1 = require('./dependencies/vue-shared-util')
 var deindent = require('de-indent')
 var splitRE = /\r?\n/g
 var replaceRE = /./g
-var isSpecialTag = vue_shared_util_1.createHTMLTagsMatchingFunction('script,style,template', true)
+var isSpecialTag = (0, vue_shared_util_1.createHTMLTagsMatchingFunction)('script,style,template', true)
 function vueSFCParser(content, options) {
     options = options || {}
     var sfc = {
@@ -115,7 +115,7 @@ function vueSFCParser(content, options) {
             return Array(offset).join(padChar)
         }
     }
-    vue_compiler_html_parser_1.parseHTML(content, {
+    (0, vue_compiler_html_parser_1.parseHTML)(content, {
         warn: warn,
         start: start,
         end: end,

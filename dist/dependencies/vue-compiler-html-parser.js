@@ -17,17 +17,17 @@ var vue_core_util_lang_1 = require("./vue-core-util-lang");
 // Regular Expressions for parsing tags and attributes
 var attribute = /^\s*([^\s"'<>/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 var dynamicArgAttribute = /^\s*((?:v-[\w-]+:|@|:|#)\[[^=]+\][^\s"'<>/=]*)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
-var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + vue_core_util_lang_1.unicodeRegExp.source + "]*";
-var qnameCapture = "((?:" + ncname + "\\:)?" + ncname + ")";
-var startTagOpen = new RegExp("^<" + qnameCapture);
+var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z".concat(vue_core_util_lang_1.unicodeRegExp.source, "]*");
+var qnameCapture = "((?:".concat(ncname, "\\:)?").concat(ncname, ")");
+var startTagOpen = new RegExp("^<".concat(qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
-var endTag = new RegExp("^<\\/" + qnameCapture + "[^>]*>");
+var endTag = new RegExp("^<\\/".concat(qnameCapture, "[^>]*>"));
 var doctype = /^<!DOCTYPE [^>]+>/i;
 // #7298: escape - to avoid being passed as HTML comment when inlined in page
 var comment = /^<!--/;
 var conditionalComment = /^<!\[/;
 // Special Elements (can contain anything)
-exports.isPlainTextElement = vue_shared_util_1.createHTMLTagsMatchingFunction('script,style,textarea', true);
+exports.isPlainTextElement = (0, vue_shared_util_1.createHTMLTagsMatchingFunction)('script,style,textarea', true);
 var reCache = {};
 var decodingMap = {
     '&lt;': '<',
@@ -41,7 +41,7 @@ var decodingMap = {
 var encodedAttr = /&(?:lt|gt|quot|amp|#39);/g;
 var encodedAttrWithNewLines = /&(?:lt|gt|quot|amp|#39|#10|#9);/g;
 // #5992
-var isIgnoreNewlineTag = vue_shared_util_1.createHTMLTagsMatchingFunction('pre,textarea', true);
+var isIgnoreNewlineTag = (0, vue_shared_util_1.createHTMLTagsMatchingFunction)('pre,textarea', true);
 var shouldIgnoreFirstNewline = function (tag, html) { return tag && isIgnoreNewlineTag(tag) && html[0] === '\n'; };
 function decodeAttr(value, shouldDecodeNewlines) {
     var re = shouldDecodeNewlines ? encodedAttrWithNewLines : encodedAttr;
@@ -58,7 +58,7 @@ function parseHTML(html, options) {
     var _loop_1 = function () {
         last = html;
         // Make sure we're not in a plaintext content element like script/style
-        if (!lastTag || !exports.isPlainTextElement(lastTag)) {
+        if (!lastTag || !(0, exports.isPlainTextElement)(lastTag)) {
             var textEnd = html.indexOf('<');
             if (textEnd === 0) {
                 // Comment:
@@ -138,7 +138,7 @@ function parseHTML(html, options) {
             var reStackedTag = reCache[stackedTag_1] || (reCache[stackedTag_1] = new RegExp('([\\s\\S]*?)(</' + stackedTag_1 + '[^>]*>)', 'i'));
             var rest1 = html.replace(reStackedTag, function (all, text, endTag) {
                 endTagLength_1 = endTag.length;
-                if (!exports.isPlainTextElement(stackedTag_1) && stackedTag_1 !== 'noscript') {
+                if (!(0, exports.isPlainTextElement)(stackedTag_1) && stackedTag_1 !== 'noscript') {
                     text = text
                         .replace(/<!--([\s\S]*?)-->/g, '$1') // #7298
                         .replace(/<!\[CDATA\[([\s\S]*?)]]>/g, '$1');
@@ -160,7 +160,7 @@ function parseHTML(html, options) {
                 options.chars(html);
             }
             if (process.env.NODE_ENV !== 'production' && !stack.length && options.warn) {
-                options.warn("Mal-formatted tag at end of template: \"" + html + "\"", { start: index + html.length });
+                options.warn("Mal-formatted tag at end of template: \"".concat(html, "\""), { start: index + html.length });
             }
             return "break";
         }
@@ -208,7 +208,7 @@ function parseHTML(html, options) {
         var tagName = match.tagName;
         var unarySlash = match.unarySlash;
         if (expectHTML) {
-            if (lastTag === 'p' && vue_platform_web_compiler_util_1.isNonPhrasingTag(tagName)) {
+            if (lastTag === 'p' && (0, vue_platform_web_compiler_util_1.isNonPhrasingTag)(tagName)) {
                 parseEndTag(lastTag);
             }
             if (canBeLeftOpenTag(tagName) && lastTag === tagName) {
@@ -273,7 +273,7 @@ function parseHTML(html, options) {
                 if (process.env.NODE_ENV !== 'production' &&
                     (i > pos || !tagName) &&
                     options.warn) {
-                    options.warn("tag <" + stack[i].tag + "> has no matching end tag.", { start: stack[i].start, end: stack[i].end });
+                    options.warn("tag <".concat(stack[i].tag, "> has no matching end tag."), { start: stack[i].start, end: stack[i].end });
                 }
                 if (options.end) {
                     options.end(stack[i].tag, start, end);

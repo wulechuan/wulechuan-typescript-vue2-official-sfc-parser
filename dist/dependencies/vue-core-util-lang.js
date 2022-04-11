@@ -30,7 +30,7 @@ exports.def = def
 /**
  * Parse simple path.
  */
-var bailRE = new RegExp('[^' + exports.unicodeRegExp.source + '.$_\\d]')
+var bailRE = new RegExp('[^'.concat(exports.unicodeRegExp.source, '.$_\\d]'))
 function parsePath(path) {
     if (bailRE.test(path)) {
         return

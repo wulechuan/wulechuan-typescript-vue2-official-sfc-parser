@@ -3,36 +3,33 @@ module.exports = {
     env: {
         es6: true,
         node: true,
-        browser: true,
+        browser: false,
     },
-    // parser: '@typescript-eslint/parser',
-    plugins: [ '@typescript-eslint' ],
     extends: [
-        "eslint:recommended",
-        'plugin:@typescript-eslint/recommended',
+        'plugin:vue/essential',
+        '@vue/typescript',
     ],
     parserOptions: {
         parser: '@typescript-eslint/parser',
-        ecmaVersion: 2018,
-        sourceType: 'module',
     },
     rules: {
-        '@typescript-eslint/camelcase': 0,
-        '@typescript-eslint/no-explicit-any': 0,
-        "@typescript-eslint/no-var-requires": 0,
-        "@typescript-eslint/explicit-function-return-type": 0,
-        "@typescript-eslint/no-use-before-define": 0,
-        "@typescript-eslint/no-unused-vars": 0,
         'no-unused-vars': 0, // for typescript interfaces
         'import/no-unresolved': 0,
         'import/no-extraneous-dependencies': 0,
-        'no-console':  [ 0 ],
-        'no-debugger': [ 2 ],
         'no-multi-spaces': 0,
         'no-implicit-globals': 0,
         indent: ['error', 4, {
             SwitchCase: 1,
             MemberExpression: 1,
+        }],
+        'vue/html-indent': [2, 4, {
+        }],
+        'vue/html-self-closing': [2, {
+            html: {
+                void: 'never',
+                normal: 'never',
+                component: 'never',
+            },
         }],
         'no-trailing-spaces': ['error', {
             skipBlankLines: false,
@@ -43,9 +40,9 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
         'max-statements': [0, 64],
-        'multiline-ternary': 0,
+        'multiline-ternary': ['error', 'always-multiline'],
         'new-parens': [1],
-        yoda: [0, 'never'],
+        yoda: [0],
         'comma-dangle': ['error', {
             arrays: 'always-multiline',
             objects: 'always-multiline',
@@ -58,7 +55,7 @@ module.exports = {
         'no-new-func': 'error',
         'no-eval': 'error',
         'no-implied-eval': 'error',
-        'prefer-const': 0,
+        'prefer-const': 'error',
         'arrow-body-style': 0,
         'prefer-destructuring': ['error',
             {

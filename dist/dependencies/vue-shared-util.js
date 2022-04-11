@@ -19,4 +19,5 @@ exports.createHTMLTagsMatchingFunction = createHTMLTagsMatchingFunction
 /**
  * Always return false.
  */
-exports.alwaysReturnsFalse = function () { return false }
+var alwaysReturnsFalse = function () { return false }
+exports.alwaysReturnsFalse = alwaysReturnsFalse
