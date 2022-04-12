@@ -83,7 +83,7 @@
 > - 已知我们的工具的代码是 TypeScript 语言编写的；
 > - 其他人在其项目中则可能采用纯 JavaScript 而非 TypeScript 语言编写代码。且可能其并未配置与兼容 TypeScript 代码相关的复杂的工具链。故其项目无法直接利用我们采用 TypeScript 语言编写的 `.vue` 部件。**他们的项目希望利用纯用 JavaScript 语言编写之工具。**
 >
-> 因此，每当我们采用 TypeScript 语言编写独立 Vue 部件后，在发布 TypeScript 语言编写的代码时，常常须同时发布一套 JavaScript 语言之版本的代码是非常必要之举。**即，发布时 TypeScript 和 JavaScript 并举。**
+> 因此，每当我们采用 TypeScript 语言编写独立的 Vue 部件后，在发布这些由 TypeScript 语言编写的代码时，一并发布一套 JavaScript 语言之版本的代码乃是非常必要之举。 **即，我们在发布时， TypeScript 和 JavaScript 并举。**
 >
 > 欲将原始 `.vue` 文件中的 TypeScript 代码提取出来以便之后转译为 JavaScript 代码，就要用到本工具。
 
@@ -206,7 +206,7 @@ type ParseComponentOptions = {
 
 ## 未来计划
 
-暂无。
+- 深究 `ParseComponentOptions` 之类型定义。
 
 
 

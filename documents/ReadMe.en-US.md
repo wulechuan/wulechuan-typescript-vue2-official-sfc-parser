@@ -40,7 +40,7 @@ Simply put, this tool tears a `.vue` file apart, and provides all parts under a 
 
 ### Why should this tool exist
 
--   Maybe we need to extract onluy the Stylus codes within a given `.vue` file, and then compile these Stylus codes into CSS codes.
+-   Maybe we need to extract only the Stylus codes within a given `.vue` file, and then compile these Stylus codes into CSS codes.
 
 -   Or say we are writting a Vue component as a lib, but we choose to write this component in TypeScript instead of JavaScript. When a project of pure JavaScript needs to make use of the lib written by us, that project might have difficulties to import out `.vue` file of TypeScript directly. So, as the author of the lib, we should provide a JavaScript version of our `.vue` file. This is a nice example that my tool play a role. You write your `.vue` lib component in TypeScript, then you design a simple tool chain to convert the TypeScript version into a JavaScript version. Then obviously my tool can help you build your tool chain.
 
@@ -147,7 +147,7 @@ type ParseComponentOptions = {
 
 ## TODOs
 
-Fine tune the `ParseComponentOptions` type.
+- Fine tune the `ParseComponentOptions` type.
 
 
 
