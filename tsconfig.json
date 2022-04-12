@@ -5,6 +5,7 @@
         "esModuleInterop": true,
         "noImplicitAny": false,
         "importHelpers": false,
-        "sourceMap": false
+        "sourceMap": false,
+        "declaration": true
     },
 }
