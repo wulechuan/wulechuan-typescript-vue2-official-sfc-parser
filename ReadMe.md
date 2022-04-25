@@ -136,7 +136,7 @@ npm  i  @wulechuan/vue2-official-sfc-parser
 import { readFile } from 'fs-extra'
 import { vueSFCParser } from '@wulechuan/vue2-official-sfc-parser'
 
-test2('./tests/testing-source-2.vue')
+test2('./测试集/testing-source-2.vue')
 
 async function test2(testingSourceFilePath) {
     const vueFileRawContent = await readFile(testingSourceFilePath, 'utf8')

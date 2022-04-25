@@ -6,7 +6,7 @@ import { vueSFCParser } from '..'
 
 
 test1()
-test2('./tests/testing-source-2.vue')
+test2('./测试集/testing-source-2.vue')
 
 
 
