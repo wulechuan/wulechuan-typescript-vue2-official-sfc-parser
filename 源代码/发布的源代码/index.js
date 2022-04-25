@@ -1,18 +1,6 @@
 'use strict'
-var __createBinding = (this && this.__createBinding) || (Object.create
-    ? (function(o, m, k, k2) {
-        if (k2 === undefined) k2 = k
-        var desc = Object.getOwnPropertyDescriptor(m, k)
-        if (!desc || ('get' in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-            desc = { enumerable: true, get: function() { return m[k] } }
-        }
-        Object.defineProperty(o, k2, desc)
-    })
-    : (function(o, m, k, k2) {
-        if (k2 === undefined) k2 = k
-        o[k2] = m[k]
-    }))
 exports.__esModule = true
-exports.vueSFCParser = void 0
+exports.vueSFCParser = exports.将Vue2的单文件部件内容全文拆分 = void 0
 var vue_sfc_parser_1 = require('./vue-sfc-parser')
-__createBinding(exports, vue_sfc_parser_1, 'vueSFCParser')
+exports.将Vue2的单文件部件内容全文拆分 = vue_sfc_parser_1.vueSFCParser
+exports.vueSFCParser = vue_sfc_parser_1.vueSFCParser

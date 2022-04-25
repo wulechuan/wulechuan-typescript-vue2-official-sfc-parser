@@ -1,4 +1,4 @@
-# 从 Vue 2.x 官方代码中提取出来的单文件部件拆分器
+# 针对 Vuejs 第 2 版单文件部件的拆分器<br><small>——从 Vuejs v2.6.11 官方代码中手工提取而得</small>
 
 <link rel="stylesheet" href="./node_modules/@wulechuan/css-stylus-markdown-themes/源代码/发布的源代码/文章排版与配色方案集/层叠样式表/wulechuan-styles-for-html-via-markdown--vscode.default.min.css">
 
@@ -37,7 +37,7 @@
 
 ### 此物之来源及功用
 
-本工具之代码系由本人手工提取自 Vue `v2.6.11` 之官方源代码后整理而得。这些代码之功能如下：
+本工具之代码系由吴乐川手工提取自 Vue `v2.6.11` 之官方源代码后整理而得。这些代码之功用如下：
 
 -   将一个【Vue 单文件部件】（外国话所谓 “single-filed component”，扩展名往往为 `.vue` ）之内容字符串中的：
 
@@ -49,11 +49,12 @@
     逐一分离，形成多个“纯净的”代码片段。
     
 -   分离出的多个代码片段全部存放在一个对象中。
+
 -   本工具对外界【返回】该对象。
 
 我们不妨暂时约定将 `<template>` 中的纯净的代码、 `<script>` 中的纯净的代码，以及 `<style>` 中的纯净的代码等，统称为鄙人所谓“**单品类代码**”。
 
-**简而言之，本工具将 `.vue` 文件之内容拆分成一个对象（Object），该对象中存放着各个单品类代码，供其他程序采用。**
+**简而言之，本工具将 `.vue` 文件之内容拆分成一套结构化的数据，即一个对象（Object），该对象中存放着 `<template>` 、 `<script>` 、 `<style>` 等各个单品类代码，供其他程序采用。**
 
 
 
@@ -76,40 +77,40 @@
 
 我们可以将原始 `.vue` 文件中的 TypeScript 代码转译为 JavaScript 代码，并将 Sass 代码编译成 CSS 代码。然后将 JavaScript 和 CSS 代码，连同原封未动的 template 部分的代码，拼合为一个新的 `.vue` 文件，存放在磁盘上。
 
-> 那么，既然已经写就了 `.vue` 文件，为何还要产出新的 `.vue` 文件呢？
+> 那么，**既然已经写就了 `.vue` 文件，为何还要产出新的 `.vue` 文件呢？**
 >
 > 这是因为：
 >
-> - 已知我们的工具的代码是 TypeScript 语言编写的；
-> - 其他人在其项目中则可能采用纯 JavaScript 而非 TypeScript 语言编写代码。且可能其并未配置与兼容 TypeScript 代码相关的复杂的工具链。故其项目无法直接利用我们采用 TypeScript 语言编写的 `.vue` 部件。**他们的项目希望利用纯用 JavaScript 语言编写之工具。**
+> - 已知我们不少工具的代码是 TypeScript 语言编写的，并希望分享出去，供其他项目调用。
+> - 其项目则可能采用纯 JavaScript 而非 TypeScript 语言编写代码。且可能其并未配置与兼容 TypeScript 代码相关的复杂的工具链。故其项目无法直接利用我们采用 TypeScript 语言编写的 `.vue` 部件。**那些项目调用的工具也应采用 JavaScript 语言编写。**
 >
 > 因此，每当我们采用 TypeScript 语言编写独立的 Vue 部件后，在发布这些由 TypeScript 语言编写的代码时，一并发布一套 JavaScript 语言之版本的代码乃是非常必要之举。 **即，我们在发布时， TypeScript 和 JavaScript 并举。**
 >
-> 欲将原始 `.vue` 文件中的 TypeScript 代码提取出来以便之后转译为 JavaScript 代码，就要用到本工具。
-
+> 欲将原始 `.vue` 文件中的 TypeScript 代码提取出来以便之后**转译为 JavaScript 代码，就要借助本工具。**
+>
 > **顺便再次强调，本工具对 `.vue` 文件之内容仅作拆分，并不做任何额外的转译、编译、转换等工作。**
 
 
 ### 对官方原始代码所作的修订
 
-为令本工具之所有代码均满足 eslint 之要求，**本人对官方的原始代码做了少数修订**。**这些修订均不改变执行之逻辑**，仅涉及代码风格。
+为令本工具之所有代码均满足 eslint 之要求，**本人对官方的原始代码做了少数修订**。**这些修订均不改变执行之逻辑**，仅影响代码风格。
 
-例如，将形如
+-   将形如
 
-```ts
-let a, b
-```
+    ```ts
+    let a, b
+    ```
 
-之写法，统统改为
+    之写法，统统改为
 
-```ts
-let a
-let b
-```
+    ```ts
+    let a
+    let b
+    ```
 
-之形式。
+    之形式。
 
-另外，本人也重命名了一些工具函数，以期“顾名思义”。
+-   重命名了一些工具函数，以期“顾名思义”。
 
 
 
@@ -133,24 +134,30 @@ npm  i  @wulechuan/vue2-official-sfc-parser
 ### 具体示例
 
 ```js
-import { readFile } from 'fs-extra'
-import { vueSFCParser } from '@wulechuan/vue2-official-sfc-parser'
+import { readFile as 非阻塞式读取文件 } from 'fs-extra'
+import { 将Vue2的单文件部件内容全文拆分 } from '@wulechuan/vue2-official-sfc-parser'
 
-test2('./测试集/testing-source-2.vue')
+测试用例2('./测试集/testing-source-2.vue')
 
-async function test2(testingSourceFilePath) {
-    const vueFileRawContent = await readFile(testingSourceFilePath, 'utf8')
-    const vueFileContentString = vueFileRawContent.toString()
-    console.log(vueSFCParser(vueFileContentString))
+async function 测试用例2 (原始文件之路径) {
+    const 原始Vue文件之内容包 = await 非阻塞式读取文件(原始文件之路径, 'utf8')
+    const 原始Vue文件之内容全文 = 原始Vue文件之内容包.toString()
+    const 拆分得到的结构化数据 = 将Vue2的单文件部件内容全文拆分(原始Vue文件之内容全文)
+    console.log(拆分得到的结构化数据)
 }
 ```
 
 
 ### 应用编程接口（所谓 API）
 
-该工具提供唯一的函数，名为 `vueSFCParser`。该函数之签名（signature）如下：
+该工具提供唯一的函数，但故意给出中外两种名称：`将Vue2的单文件部件内容全文拆分` 和 `vueSFCParser`。该函数之签名（signature）如下：
 
 ```ts
+function 将Vue2的单文件部件内容全文拆分 (
+    content: string,
+    options?: ParseComponentOptions
+): SFCDescriptor
+
 function vueSFCParser (
     content: string,
     options?: ParseComponentOptions

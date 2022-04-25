@@ -12,6 +12,7 @@
     },
     "search.exclude": {
         "**/node_modules": true,
-        "**/*.code-search": true
+        "**/*.code-search": true,
+        "源代码/发布的源代码": true
     }
 }

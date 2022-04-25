@@ -93,7 +93,8 @@ test2('./测试集/testing-source-2.vue')
 async function test2(testingSourceFilePath) {
     const vueFileRawContent = await readFile(testingSourceFilePath, 'utf8')
     const vueFileContentString = vueFileRawContent.toString()
-    console.log(vueSFCParser(vueFileContentString))
+    const theStructure = vueSFCParser(vueFileContentString)
+    console.log(theStructure)
 }
 ```
 
