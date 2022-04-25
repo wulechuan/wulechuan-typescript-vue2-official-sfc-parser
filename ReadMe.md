@@ -11,7 +11,7 @@
 
 ## Multilingual Editions of this Article
 
-- [English version of this ReadMe](./文档集/ReadMe.en-US.md)
+- [English version of this ReadMe](./文档集/说明书/ReadMe.en-US.md)
 
 
 
@@ -39,7 +39,7 @@
 
 本工具之代码系由本人手工提取自 Vue `v2.6.11` 之官方源代码后整理而得。这些代码之功能如下：
 
--   将一个【Vue 单文件部件】（即“single-filed-component”，扩展名往往为 `.vue` ）之内容字符串中的：
+-   将一个【Vue 单文件部件】（外国话所谓 “single-filed component”，扩展名往往为 `.vue` ）之内容字符串中的：
 
     - 唯一的【根 `<template>`】、
     - 唯一的【`<script>`】、

@@ -1,10 +1,10 @@
 # Vue 2.x Official Single-filed Component (SFC) Parser That's Extracted
 
-<link rel="stylesheet" href="../node_modules/@wulechuan/css-stylus-markdown-themes/源代码/发布的源代码/文章排版与配色方案集/层叠样式表/wulechuan-styles-for-html-via-markdown--vscode.default.min.css">
+<link rel="stylesheet" href="../../node_modules/@wulechuan/css-stylus-markdown-themes/源代码/发布的源代码/文章排版与配色方案集/层叠样式表/wulechuan-styles-for-html-via-markdown--vscode.default.min.css">
 
 ## Multilingual Editions of this Article
 
-- 《[本文之简体中文版](../ReadMe.md)》
+- 《[本文之简体中文版](../../ReadMe.md)》
 
 
 
