@@ -5,8 +5,8 @@
     "license": "MIT",
     "description": "本工具之代码系由本人手工提取自 Vue `v2.6.11` 之官方源代码后整理而得。其功用是将一个 .vue 文件之内容全文解析成结构化的数据，以便后续处理。该结构化的数据包含 <template> 、 <script> 、 <style> 等标签之内容、属性等。",
     "scripts": {
-        "remove-all-html-docs": "rimraf  ./ReadMe.html  ./documents/**/*.html",
-        "generate-html-docs": "npm  run  remove-all-html-docs    &&    wlc-md-to-html  -i ./*.md,./documents/**/*.md  -E3  -C ./documents/wlc-md-to-html.config.js  --to '*'",
+        "remove-all-html-docs": "rimraf  ./ReadMe.html  ./文档集/**/*.html",
+        "generate-html-docs": "npm  run  remove-all-html-docs    &&    wlc-md-to-html  -i ./*.md,./文档集/**/*.md  -E3  -C ./文档集/wlc-md-to-html.config.js  --to '*'",
         "_lint-source": "eslint  --fix  ./source/**/*.ts  .eslintrc.js  ./测试集/**/*",
         "_lint-dist": "eslint    --fix  ./dist/",
         "_tsc": "npm  run  _lint-source    &&    rimraf  -rf  ./dist    &&    tsc  ./source/index.ts  --declaration --outDir ./dist/    &&    rimraf  -f  ./dist/types.js",
