@@ -3,8 +3,9 @@
     "files.exclude": {
         "**/.DS_Store": true,
         "**/node_modules": true,
+        ".babel*": true,
         // "package-lock.json": true,
-        // ".markdownlint*": true,
+        ".markdownlint*": true,
         // ".eslintrc.js": true,
         // ".npmignore": true,
         // ".gitignore": true,
