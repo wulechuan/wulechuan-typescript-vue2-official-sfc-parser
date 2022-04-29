@@ -11,7 +11,7 @@
 
 ## Multilingual Editions of this Article
 
-- [English version of this ReadMe](./文档集/说明书/ReadMe.en-US.md)
+- [English edition of this ReadMe](./文档集/说明书/ReadMe.en-US.md)
 
 
 
@@ -95,7 +95,7 @@
 
 为令本工具之所有代码均满足 eslint 之要求，**本人对官方的原始代码做了少数修订**。**这些修订均不改变执行之逻辑**，仅影响代码风格。
 
--   将形如
+1.  将形如
 
     ```ts
     let a, b
@@ -110,7 +110,7 @@
 
     之形式。
 
--   重命名了一些工具函数，以期“顾名思义”。
+1.  重命名了一些工具函数，以期“顾名思义”。
 
 
 
@@ -205,15 +205,6 @@ type ParseComponentOptions = {
 | 码云           | 中华人民共和国 | [https://gitee.com/nanchang-wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git](https://gitee.com/nanchang-wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git) |
 | 阿里云之代码仓库 | 中华人民共和国 | [https://code.aliyun.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git](https://code.aliyun.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git) |
 | GitHub         | 美           | [https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git](https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git) |
-
-
-
-
----
-
-## 未来计划
-
-- 深究 `ParseComponentOptions` 之类型定义。
 
 
 
