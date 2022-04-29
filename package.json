@@ -5,6 +5,7 @@
     "license": "MIT",
     "description": "此为吴乐川的《针对 Vuejs 第 2 版单文件部件的拆分器》。本工具之代码系由吴乐川手工提取自 Vue `v2.6.11` 之官方源代码后整理而得。其功用是将一个 .vue 文件之内容全文拆分成一套结构化的数据，即一个 JavaScript 对象。该结构化的数据包含 `<template>` 、 `<script>` 、 `<style>` 等标签之内容、属性等。",
     "main": "./源代码/发布的源代码/index.js",
+    "types": "./源代码/发布的源代码/index.d.ts",
     "scripts": {
         "remove-all-html-docs": "rimraf  ./ReadMe.html  ./文档集/**/*.html",
         "generate-html-docs": "npm  run  remove-all-html-docs    &&    wlc-md-to-html  -i ./*.md,./文档集/**/*.md  -E3  -C ./文档集/wlc-md-to-html.config.js  --to '*'",
@@ -17,6 +18,33 @@
         "start": "npm  run  制作须发布的内容    &&    npm  test",
         "每当制作集得之版本之前": "npm  i              &&    npm  start",
         "prepublishOnly": "rimraf  ./ReadMe.html    &&    npm  start"
+    },
+    "dependencies": {
+        "de-indent": "^1.0.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.17.9",
+        "@babel/node": "^7.16.8",
+        "@babel/preset-env": "^7.16.11",
+        "@types/node": "^17.0.30",
+        "@typescript-eslint/eslint-plugin": "^5.21.0",
+        "@typescript-eslint/parser": "^5.21.0",
+        "@vue/eslint-config-typescript": "^10.0.0",
+        "@wulechuan/cli-scripts--git-push": "^2.0.2",
+        "@wulechuan/css-stylus-markdown-themes": "^7.5.1",
+        "eslint": "^8.14.0",
+        "fs-extra": "^10.1.0",
+        "typescript": "^4.6.4",
+        "vue": "^2.6.14",
+        "vue-property-decorator": "^9.1.2"
+    },
+    "homepage": "https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git/issues"
     },
     "keywords": [
         "vue",
@@ -81,32 +109,5 @@
         "sass",
         "scss",
         "LESS"
-    ],
-    "homepage": "https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git#readme",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git"
-    },
-    "bugs": {
-        "url": "https://github.com/wulechuan/wulechuan-typescript-vue2-official-sfc-parser.git/issues"
-    },
-    "dependencies": {
-        "de-indent": "^1.0.2"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.17.9",
-        "@babel/node": "^7.16.8",
-        "@babel/preset-env": "^7.16.11",
-        "@types/node": "^17.0.30",
-        "@typescript-eslint/eslint-plugin": "^5.21.0",
-        "@typescript-eslint/parser": "^5.21.0",
-        "@vue/eslint-config-typescript": "^10.0.0",
-        "@wulechuan/cli-scripts--git-push": "^2.0.2",
-        "@wulechuan/css-stylus-markdown-themes": "^7.5.1",
-        "eslint": "^8.14.0",
-        "fs-extra": "^10.1.0",
-        "typescript": "^4.6.4",
-        "vue": "^2.6.14",
-        "vue-property-decorator": "^9.1.2"
-    }
+    ]
 }
