@@ -1,6 +1,6 @@
 {
     "name": "@wulechuan/vue2-official-sfc-parser",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "author": "吴乐川 <wulechuan@live.com>",
     "license": "MIT",
     "description": "此为吴乐川的《针对 Vuejs 第 2 版单文件部件的拆分器》。本工具之代码系由吴乐川手工提取自 Vue `v2.6.11` 之官方源代码后整理而得。其功用是将一个 .vue 文件之内容全文拆分成一套结构化的数据，即一个 JavaScript 对象。该结构化的数据包含 `<template>` 、 `<script>` 、 `<style>` 等标签之内容、属性等。",
@@ -31,7 +31,7 @@
         "@typescript-eslint/parser": "^5.22.0",
         "@vue/eslint-config-typescript": "^10.0.0",
         "@wulechuan/cli-scripts--git-push": "^2.0.3",
-        "@wulechuan/css-stylus-markdown-themes": "^7.6.2",
+        "@wulechuan/css-stylus-markdown-themes": "^7.7.0",
         "eslint": "^8.14.0",
         "fs-extra": "^10.1.0",
         "typescript": "^4.6.4",
