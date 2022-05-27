@@ -6,10 +6,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "更新所有npm依赖包至最新版本（PowerShell）",
+            "label": "测试",
             "type": "shell",
-            "command": ".\\用于研发阶段的命令行工具\\PowerShell\\Update-更新所有npm依赖包至最新版本.ps1  -安装之前先删除旧有的_node_modules_文件夹",
-            "group": "none",
+            "command": "npm  test",
+            "group": "test",
             "problemMatcher": []
         },
         {
@@ -20,18 +20,32 @@
             "problemMatcher": []
         },
         {
+            "label": "将代码依次推送至多个集得源（PowerShell）",
             "type": "shell",
-            "command": "pwsh  -Command '.\\用于研发阶段的命令行工具\\PowerShell\\Push-将代码依次推送至多个集得源.ps1'",
+            "command": "pwsh  -Command '.\\用于研发阶段的命令行工具集\\PowerShell\\Push-将代码依次推送至多个集得源.ps1'",
             "group": "none",
-            "problemMatcher": [],
-            "label": "将代码依次推送至多个集得源（PowerShell）"
+            "problemMatcher": []
         },
         {
+            "label": "将代码依次推送至多个集得源（Bash）",
             "type": "shell",
-            "command": "bash  -c 'source  ./用于研发阶段的命令行工具/bash/push-将代码依次推送至多个集得源.sh'",
+            "command": "bash  -c 'source  ./用于研发阶段的命令行工具集/bash/push-将代码依次推送至多个集得源.sh'",
             "group": "none",
-            "problemMatcher": [],
-            "label": "将代码依次推送至多个集得源（Bash）"
+            "problemMatcher": []
+        },
+        {
+            "label": "更新所有 npm 依赖包至允许范围内的最新版本（PowerShell）",
+            "type": "shell",
+            "command": "pwsh  -Command '.\\用于研发阶段的命令行工具集\\PowerShell\\Update-更新所有-npm-依赖包至允许范围内的最新版本.ps1  -安装之前应先删除旧有的_node_modules_文件夹  -安装之前应先删除旧有的_package_lock_json_文件'",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "更新所有 npm 依赖包至允许范围内的最新版本（Bash）",
+            "type": "shell",
+            "command": "bash  -c 'source  ./用于研发阶段的命令行工具集/bash/update-更新所有-npm-依赖包至允许范围内的最新版本.sh'",
+            "group": "none",
+            "problemMatcher": []
         }
     ]
 }
