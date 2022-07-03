@@ -20,4 +20,4 @@ export function createHTMLTagsMatchingFunction (
 /**
  * Always return false.
  */
-export const alwaysReturnsFalse = (): boolean => false
+export const alwaysReturnsFalse = () => false

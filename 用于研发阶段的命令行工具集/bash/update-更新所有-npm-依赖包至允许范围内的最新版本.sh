@@ -1,213 +1,103 @@
 #!/bin/bash
 
-source  './node_modules/@wulechuan/cli-scripts--npm-project-helpers/源代码/发布的源代码/bash/吴乐川-打印-json.sh'
-source  './node_modules/@wulechuan/cli-scripts--npm-project-helpers/源代码/发布的源代码/bash/吴乐川-管理某-npm-项目的依赖包等资源.sh'
-
-SHOULD_REMOVE_NODE_MODULES_FIRST=1
-SHOULD_REMOVE_PACKAGE_LOCK_JSON_FIRST=1
-SHOULD_DRY_RUN=0
+# 在采用本工具集的其他 npm 项目中，均应这样写：
+__wulechuan_temporary_var___source_common_path__='./node_modules/@wulechuan/cli-scripts--npm-project-helpers'
 
 
 
 
 
-function 完整流程  {
-    local ShouldRemoveNodeModulesFirst=0
-    local ShouldRemovePackageLockJSONFirst=0
-    local ShouldDryRun=0
-
-    Read-_吴乐川管理某_npm_项目__读取公共参数  $*
-
-    # echo "[DEBUG] 完整流程 ShouldRemoveNodeModulesFirst = '${ShouldRemoveNodeModulesFirst}'"
-    # echo "[DEBUG] 完整流程 ShouldRemovePackageLockJSONFirst = '${ShouldRemovePackageLockJSONFirst}'"
-    # echo "[DEBUG] 完整流程 ShouldDryRun = '${ShouldDryRun}'"
+source  "${__wulechuan_temporary_var___source_common_path__}/源代码/发布的源代码/bash/吴乐川-针对命令与函数的辅助工具集.sh"
+source  "${__wulechuan_temporary_var___source_common_path__}/源代码/发布的源代码/bash/吴乐川-数据处理-文本.sh"
+source  "${__wulechuan_temporary_var___source_common_path__}/源代码/发布的源代码/bash/吴乐川-打印-json.sh"
+source  "${__wulechuan_temporary_var___source_common_path__}/源代码/发布的源代码/bash/吴乐川-管理某-npm-项目的依赖包等资源.sh"
 
 
 
 
 
-    # ───────────────────────────────────────────────────────────────
-    #  1) 按需删除 node_modules      文件夹。
-    #  2) 按需删除 package-lock.json 文件。
-    # ───────────────────────────────────────────────────────────────
-
-    Remove-吴乐川管理某_npm_项目__删除当前文件夹下的_node_modules       --dry-run $ShouldDryRun  --should-run-this-task $ShouldRemoveNodeModulesFirst
-    Remove-吴乐川管理某_npm_项目__删除当前文件夹下的_package_lock_json  --dry-run $ShouldDryRun  --should-run-this-task $ShouldRemovePackageLockJSONFirst
+function 完整流程 {
+    local BY_DEFAULT__SHOULD_DRY_RUN='false'
 
 
 
 
 
+    local ShouldDryRun
+    local NpmArguments
+
+    local ArgumentConfigsArray=(
+        # 以下是本函数接受并主动存放在变量中的参数之列表。
+        #  命令行参数名                                         | 变量名                            | 取值之类型    | 默认值
+        # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+        "--应仅作仿真演练                                       | ShouldDryRun                     | 标准类型_布尔 | ${BY_DEFAULT__SHOULD_DRY_RUN}"
+        "--npm-args                                           | NpmArguments                     | 标准类型_文本 | " # --foreground-scripts
+    )
+
+    # 以下是本函数接受的，但并不存放在变量中的参数之列表。这些参数的值会直接传递到内层其它函数。
+    #   --在安装诸依赖包之前应先删除旧有的_node_modules_文件夹        标准类型_布尔
+    #   --在安装诸依赖包之前应先删除旧有的_package-lock点json_文件    标准类型_布尔
 
 
-    # ───────────────────────────────────────────────────────────────
-    #  3) 安装依赖包。【产品级】、【甲】类。
+
+    # ------------- 开始 -------------
+
+    local LastTaskReturnCode
+
+    Read-吴乐川读取并处理某函数的参数表  --调试功能之级别 0  "$@"
+    LastTaskReturnCode=$?; if [ $LastTaskReturnCode -ne 0 ]; then return $LastTaskReturnCode; fi
+
+
+
+
+
+    # ────────────────────────────────────────────────────────────────
+    #  1) 安装【产品级】和【研发级】依赖包。
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     #     顺便提醒，虽然一般而言 latest 版本应恰为最高版本，但并不确保。
-    # ───────────────────────────────────────────────────────────────
+    # ────────────────────────────────────────────────────────────────
 
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_产品级_均为最晚版本  --dry-run $ShouldDryRun
-
-    # 如果 @wulechuan/cli-scripts--npm-project-helpers 工具集随附的 JavaScript 程序运行如期，
-    # 其将在此处插入当前 npm 项目的【产品级】、【可自由采取其版本】的依赖包的列表。    另，切勿改动该行。该行之部分文字是供 JavaScript 程序识别的特殊记号。
-
-    if false; then
-
-        echo  '暂无。'
-
-    else
-
-        if [ $ShouldDryRun -eq 1 ]; then
-            echo  -e  "   \e[0;33m【仿真演练】\e[0;0m"
-        fi
-
-        echo  '    npm  i \'
-        echo  '        de-indent@latest'
-
-        echo  -en  "\n\e[0;31m"; Write-Line-without-line-break; echo  -e  "\e[0;0m"
-
-        if [ $ShouldDryRun -eq 0 ]; then
-
-            # ───────────────────────────
-
-            # [ 0 ]        # 当本 else 语句块中没有其它语句时，这句必须存在。
-
-            # ───────────────────────────
-
-            npm  i \
-                de-indent@latest
-
-            # ───────────────────────────
-
-        fi
-
-    fi
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_产品级_均为最晚版本  --dry-run $ShouldDryRun  --is-ending
-
-
-
-
-
-
-
-    # ───────────────────────────────────────────────────────────────
-    #  3) 安装依赖包。【产品级】、【乙】类。
-    # ───────────────────────────────────────────────────────────────
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_产品级_均为特定版本  --dry-run $ShouldDryRun
+    # 使用示范：
+    #
+    # Update-吴乐川更新当前_npm_项目的所有依赖包 \
+    #     --某产品级依赖包之版本配置 '@wulechuan/text-basic-typography   |::|   null' \
+    #     --某产品级依赖包之版本配置 'chalk                              |::|   null' \
+    #     --某产品级依赖包之版本配置 'fs-extra                           |::|   null' \
+    #     --某产品级依赖包之版本配置 'jsonc-parser                       |::|   null' \
+    #     --某研发级依赖包之版本配置 '@wulechuan/cli-scripts--git-push   |::|   null' \
+    #     --某研发级依赖包之版本配置 'eslint                             |::|   null' \
+    #     --NPM安装依赖包时须额外带上的参数序列="$NpmArguments" \
+    #     --应仅作仿真演练 "$ShouldDryRun"
 
     # 如果 @wulechuan/cli-scripts--npm-project-helpers 工具集随附的 JavaScript 程序运行如期，
-    # 其将在此处插入当前 npm 项目的【产品级】、【须锁定其版本范围】依赖包的列表。    另，切勿改动该行。该行之部分文字是供 JavaScript 程序识别的特殊记号。
+    # 其将在此后插入当前 npm 项目的依赖包之列表。    另，切勿改动该行。该行之部分文字是供 JavaScript 程序识别的特殊记号。
 
-    if true; then
-
-        echo  '暂无。'
-
-    else
-
-        if [ $ShouldDryRun -eq 1 ]; then
-            echo  -e  "   \e[0;33m【仿真演练】\e[0;0m"
-        fi
-
-        # echo  'npm  i  ????????@0.0.0'
-
-        echo  -en  "\n\e[0;31m"; Write-Line-without-line-break; echo  -e  "\e[0;0m"
-
-        if [ $ShouldDryRun -eq 0 ]; then
-
-            # ───────────────────────────
-
-            [ 0 ]        # 当本 else 语句块中没有其它语句时，这句必须存在。
-
-            # ───────────────────────────
-            # 暂无任务。故此处无任何信息。
-            # ───────────────────────────
-
-            # 不妨把任务写在这里。
-
-            # ───────────────────────────
-
-        fi
-
-    fi
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_产品级_均为特定版本  --dry-run $ShouldDryRun  --is-ending
-
-
-
-
-
-
-
-    # ───────────────────────────────────────────────────────────────
-    #  3) 安装依赖包。【研发级】、【甲】类。
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    #     顺便提醒，虽然一般而言 latest 版本应恰为最高版本，但并不确保。
-    # ───────────────────────────────────────────────────────────────
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_研发级_均为最晚版本  --dry-run $ShouldDryRun
+    Update-吴乐川更新当前_npm_项目的所有依赖包 \
+        --某产品级依赖包之版本配置 "                                  de-indent   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                @babel/core   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                @babel/node   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                          @babel/preset-env   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                @types/node   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "           @typescript-eslint/eslint-plugin   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                  @typescript-eslint/parser   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "              @vue/eslint-config-typescript   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "           @wulechuan/cli-scripts--git-push   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "@wulechuan/cli-scripts--npm-project-helpers   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "      @wulechuan/css-stylus-markdown-themes   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                     eslint   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                   fs-extra   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                 typescript   |:|   latest   |:|" \
+        --某研发级依赖包之版本配置 "                                        vue   |:|   ^2       |:|   该工具提取自 Vuejs 2 ，且并不适用于 Vuejs 3 。" \
+        --某研发级依赖包之版本配置 "                     vue-property-decorator   |:|   latest   |:|" \
+        --内容分割记号='|:|' \
+        --NPM安装依赖包时须额外带上的参数序列="$NpmArguments" \
+        --调试功能之级别 0 \
+        --应仅作仿真演练 false
 
     # 如果 @wulechuan/cli-scripts--npm-project-helpers 工具集随附的 JavaScript 程序运行如期，
-    # 其将在此处插入当前 npm 项目的【研发级】、【可自由采取其版本】依赖包的列表。    另，切勿改动该行。该行之部分文字是供 JavaScript 程序识别的特殊记号。
+    # 其将在此前插入当前 npm 项目的依赖包之列表。    另，切勿改动该行。该行之部分文字是供 JavaScript 程序识别的特殊记号。
 
-    if false; then
-
-        echo  '暂无。'
-
-    else
-
-        if [ $ShouldDryRun -eq 1 ]; then
-            echo  -e  "   \e[0;33m【仿真演练】\e[0;0m"
-        fi
-
-        echo  '    npm  i  -D \'
-        echo  '        @babel/core@latest \'
-        echo  '        @babel/node@latest \'
-        echo  '        @babel/preset-env@latest \'
-        echo  '        @types/node@latest \'
-        echo  '        @typescript-eslint/eslint-plugin@latest \'
-        echo  '        @typescript-eslint/parser@latest \'
-        echo  '        @vue/eslint-config-typescript@latest \'
-        echo  '        @wulechuan/cli-scripts--npm-project-helpers@latest \'
-        echo  '        @wulechuan/css-stylus-markdown-themes@latest \'
-        echo  '        eslint@latest \'
-        echo  '        fs-extra@latest \'
-        echo  '        typescript@latest \'
-        echo  '        vue-property-decorator@latest'
-
-        echo  -en  "\n\e[0;32m"; Write-Line-without-line-break; echo  -e  "\e[0;0m"
-
-        if [ $ShouldDryRun -eq 0 ]; then
-
-            # ───────────────────────────
-
-            # [ 0 ]        # 当本 else 语句块中没有其它语句时，这句必须存在。
-
-            # ───────────────────────────
-
-            npm  i  -D \
-                @babel/core@latest \
-                @babel/node@latest \
-                @babel/preset-env@latest \
-                @types/node@latest \
-                @typescript-eslint/eslint-plugin@latest \
-                @typescript-eslint/parser@latest \
-                @vue/eslint-config-typescript@latest \
-                @wulechuan/cli-scripts--npm-project-helpers@latest \
-                @wulechuan/css-stylus-markdown-themes@latest \
-                eslint@latest \
-                fs-extra@latest \
-                typescript@latest \
-                vue-property-decorator@latest
-
-            # ───────────────────────────
-
-        fi
-
-    fi
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_研发级_均为最晚版本  --dry-run $ShouldDryRun  --is-ending
+    LastTaskReturnCode=$?; if [ $LastTaskReturnCode -ne 0 ]; then return $LastTaskReturnCode; fi
 
 
 
@@ -215,65 +105,13 @@ function 完整流程  {
 
 
 
-    # ───────────────────────────────────────────────────────────────
-    #  3) 安装依赖包。【研发级】、【乙】类。
-    # ───────────────────────────────────────────────────────────────
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_研发级_均为特定版本  --dry-run $ShouldDryRun
-
-    # 如果 @wulechuan/cli-scripts--npm-project-helpers 工具集随附的 JavaScript 程序运行如期，
-    # 其将在此处插入当前 npm 项目的【研发级】、【须锁定其版本范围】依赖包的列表。    另，切勿改动该行。该行之部分文字是供 JavaScript 程序识别的特殊记号。
-
-    if false; then
-
-        echo  '暂无。'
-
-    else
-
-        if [ $ShouldDryRun -eq 1 ]; then
-            echo  -e  "   \e[0;33m【仿真演练】\e[0;0m"
-        fi
-
-        echo  '    npm  i  -D \'
-        echo  '        vue@^2'
-
-        echo  -en  "\n\e[0;32m"; Write-Line-without-line-break; echo  -e  "\e[0;0m"
-
-        if [ $ShouldDryRun -eq 0 ]; then
-
-            # ───────────────────────────
-
-            # [ 0 ]        # 当本 else 语句块中没有其它语句时，这句必须存在。
-
-            # ──────────────────────────────────────────────────────
-            # Vue
-            #     该工具提取自 Vuejs 2 ，且并不适用于 Vuejs 3 。
-            # ──────────────────────────────────────────────────────
-
-            npm  i  -D \
-                vue@^2
-
-            # ───────────────────────────
-
-        fi
-
-    fi
-
-    Write-吴乐川管理某_npm_项目__打印提示语__新装或升级某批依赖包_研发级_均为特定版本  --dry-run $ShouldDryRun  --is-ending
-
-
-
-
-
-
-
-    # ───────────────────────────────────────────────────────────────
-    #  4) 更新与研发相关的数据库。
+    # ────────────────────────────────────────────────────────────────
+    #  2) 更新与研发相关的数据库。
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     #     例如： Browserslist:caniuse-lite
-    # ───────────────────────────────────────────────────────────────
+    # ────────────────────────────────────────────────────────────────
 
-    Write-吴乐川管理某_npm_项目__打印提示语__更新与研发相关的数据库  --dry-run $ShouldDryRun
+    Write-吴乐川管理某_npm_项目__打印提示语__更新与研发相关的数据库  --应仅作仿真演练 $ShouldDryRun
 
     if true; then
 
@@ -281,31 +119,31 @@ function 完整流程  {
 
     else
 
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
 
-        # [ 0 ]        # 当本 else 语句块中没有其它语句时，这句必须存在。
+        :        # 当本 else 语句块中没有其它语句时，这句必须存在。
 
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
 
         if false; then
-            if [ $ShouldDryRun -eq 1 ]; then
+            if [ "$ShouldDryRun" == true ]; then
                 echo  -en  "   \e[0;33m【仿真演练】\e[0;0m\n    "
             fi
 
             echo  'npx  browserslist@latest  --update-db'
 
-            if [ $ShouldDryRun -eq 0 ]; then
+            if [ "$ShouldDryRun" == false ]; then
                 npx  browserslist@latest  --update-db
             fi
 
             echo
         fi
 
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
 
     fi
 
-    Write-吴乐川管理某_npm_项目__打印提示语__更新与研发相关的数据库  --dry-run $ShouldDryRun  --is-ending
+    Write-吴乐川管理某_npm_项目__打印提示语__更新与研发相关的数据库  --应仅作仿真演练 $ShouldDryRun  --系作为该任务之结束提示语
 
 
 
@@ -313,26 +151,26 @@ function 完整流程  {
 
 
 
-    # ───────────────────────────────────────────────────────────────
-    #  5) 其他交代。
-    # ───────────────────────────────────────────────────────────────
+    # ────────────────────────────────────────────────────────────────
+    #  3) 其他交代。
+    # ────────────────────────────────────────────────────────────────
 
-    Write-吴乐川管理某_npm_项目__打印提示语__其他交代  --dry-run $ShouldDryRun
+    Write-吴乐川管理某_npm_项目__打印提示语__其他交代  --应仅作仿真演练 $ShouldDryRun
 
-    if true; then
+    if false; then
 
         echo  '暂无。'
 
     else
 
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
         # 此处不妨做些关于当前 npm 项目的必要交代。
         # 例如注意事项、关键步骤等等。
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
 
-        [ 0 ]        # 当本 else 语句块中没有其它语句时，这句必须存在。
+        :        # 当本 else 语句块中没有其它语句时，这句必须存在。
 
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
 
         # echo -e "\e[33m以下是一个 JavaScript 对象。\e[0;0m"
         # echo
@@ -350,18 +188,27 @@ function 完整流程  {
 
         # echo '}'
 
-        # ───────────────────────────
+        # ──────────────────────────────────────────────────────
 
     fi
 
-    Write-吴乐川管理某_npm_项目__打印提示语__其他交代  --dry-run $ShouldDryRun  --is-ending
+    Write-吴乐川管理某_npm_项目__打印提示语__其他交代  --应仅作仿真演练 $ShouldDryRun  --系作为该任务之结束提示语
 }
 
 
 
 
 
-完整流程 \
-    --remove-node-modules-first    $SHOULD_REMOVE_NODE_MODULES_FIRST \
-    --remove-packa-lock-json-first $SHOULD_REMOVE_PACKAGE_LOCK_JSON_FIRST \
-    --dry-run                      $SHOULD_DRY_RUN
+完整流程  "$@"
+
+__wulechuan_temporary_var___exit_code__exception_code__=$?
+if [ $__wulechuan_temporary_var___exit_code__exception_code__ -ne 0 ]; then
+    echo  -e  "\e[0;31m──────────────────────── \e[0;0m"
+    echo  -e  "\e[0;31m程序异常结束代码： \e[0;33m${__wulechuan_temporary_var___exit_code__exception_code__} \e[0;0m"
+    echo  -e  "\e[0;31m──────────────────────── \e[0;0m\n　"
+fi
+
+unset -f 完整流程
+unset __wulechuan_temporary_var___source_common_path__
+
+return $__wulechuan_temporary_var___exit_code__exception_code__
